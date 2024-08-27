@@ -12,3 +12,12 @@ In the 'TimeAudioFeatures' directory, I have extracted 3 time based features fro
 In the 'FourierTransform' directory, I have taken the Fourier Transformer of some signals from different music instruments. The Fourier Trnasform was taken using the np.fft.fft() function which takes the Fast Fourier Transform (O(n*logn)). Then, I have taken the Inverse Fourier Transfroms of the Fourier Transform and compared the absolute value of the original signal to validate that information is preserved in these transforms. 
 Mathematically, the Fourier Transform is represented as: <br/>
 <p align="center">$\hat{x}(\frac{k}{N}) = \sum_{n=0}^{N-1} x(n).e^{-i.2\pi n.\frac{k}{N}}$</p><br/>
+
+### Spectrograms
+A problem with Fourier Transforms is that it tells us which frequencies are extensively present in the signal, however they do not dictate when these frequencies are present within the signal. We solve this problem using Short-Time Fourier Transforms (STFTs). In STFTs, we take the Fourier Transforms over short frames of size = FRAME_SIZE, instead of taking the trnasforms over the entire signal. Mathematically, Short-Term Fourier Transform is given by: <br/>
+<p align="center">$S(m, k) = \sum_{n = 0}^{N-1} x(n + mH).\omega (n).e^{-i.2\pi n.\frac{k}{N}}$</p><br/>
+
+Here S(m, k) represents the Fourier Transform taken over the mth frame. S(m, k) is basically a matrix with dimensions (number of frequency bins, frames). However this matrix contains complex numbers and hence we define: <br/>
+
+<p align="center">$Y(m, k) = \left| S(m, k)\right| ^ {2}$</p><br/>
+The plot of this matrix Y(m, k) is called a 'Spectrogram' which gives a time-frequency representation of the signal. In the 'Spectrogram' directory, I have plotted the Spectrograms of various different musical instruments. The Spectrograms were plotted on a 'log' scale for better visualization of various low energies. These spectrograms were plotted using librosa.display.specshow function.
