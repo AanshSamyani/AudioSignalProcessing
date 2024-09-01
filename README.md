@@ -24,3 +24,9 @@ The plot of this matrix Y(m, k) is called a 'Spectrogram' which gives a time-fre
 
 ### Mel-Spectrograms
 Humans do not percieve frequencies on a linear scale. Consider to sounds played in two differnet frequency ranges, 50Hz-250Hz and 1500Hz-1700Hz. We can clearly make out the differnece between the sounds played at 50Hz and 250Hz but we cannot percieve/make out much difference between the sounds played at 1500Hz and 1700Hz. Even though the frequency range is both, it is harder for us to distinguish higher frequencies. This empirically proves we don't percieve frequencies on a linear scale. This just means that 2 points of lower frequencies on a spectrogram can be easily distinguished by us, however 2 points of higher frequencies couldn't be easily distinguished. To solve this problem, we use a unit of pitch such that equal distances in pitch sound equally distant to the listener, this scale is called the Mel-Scale (Mel is derived from Melody). A Mel-Spectrogram is one in which the frequencies are converted to the Mel-Scale (Mel-Scale is logarithmic in nature).
+
+
+### Mel-Frequency Cepstral Coefficients (MFCCs)
+The Mel-Frequency Cepstral Coefficients are features extracted from audio, inspired by how humans produce/generate speech. There are two main components of speech generation. The first one is a Glottal Pulse which is some random noise which holds the information only about the pitch of the sound, the second is the Vocal Tract Frequency Response which is responsible for shaping the pulse into sensible speech. The Vocal Tract Frequency Response shapes this noise into morphemes, and also has information regarding the Timbre of sound. The MFCCs are used to capture these two components of speech. The word 'Cepstrum' is derived from the word 'Spectrum' (SPEC -> reverse -> CEPS). Mathematically, the Cepstrum of a signal x(t) is given by: <br/>
+<p align="center">$C(x(t)) = F^{-1}[log(F[x(t)])]$</p>
+
